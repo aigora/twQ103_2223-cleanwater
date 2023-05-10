@@ -107,10 +107,16 @@ int main(){
             //meter función para introducir nuevos datos
         }else if(opcion==3){
             imprimirParametros();
-            //meter todo el printf de los parametros en la funcion que hay arriba
+            //meter todo el printf de los parametros en la funcion que hay abjo
         }else if(opcion==4){
             imprimirInfo();
-            //meter todo el printf de la información de la aplicacion en la funcion de arriba
+            //meter todo el printf de la información de la aplicacion en la funcion de abajo
     }
-    }while(opcion!=5);
+    }while(opcion==5);
+}
+
+//FUNCIONES
+void imprimirParametros(){}
+void imprimirInfo(){
+    printf("CLEAN WATER\n\n¡Bienvenidos a CleanWater!\n Somos una página web dedicada a recopilar datos sobre la calidad del agua en los distintos distritos de Madrid. Nuestra misión es proporcionar información precisa y actualizada sobre el estado del agua en cada área, para que los ciudadanos puedan tomar decisiones informadas sobre su consumo y uso.\nEn CleanWater, recopilamos datos de diversas fuentes confiables y los presentamos de manera clara y accesible. Nuestro objetivo es proporcionar información detallada sobre la calidad del agua, incluyendo niveles de pH, cloro, turbidez, y otros parámetros importantes. También ofrecemos consejos y recomendaciones para garantizar que el agua que se consume en casa sea segura y saludable.\nNuestra página web es fácil de usar y está diseñada para ser accesible a todos. Queremos que la información sobre la calidad del agua sea accesible a todos los ciudadanos de Madrid, para que puedan tomar decisiones informadas sobre su consumo de agua.\nEn CleanWater, creemos que el acceso a información precisa y actualizada sobre la calidad del agua es fundamental para garantizar la salud y el bienestar de las personas. Esperamos que nuestra página web sea una herramienta útil para todos los ciudadanos de Madrid y contribuya a mejorar la calidad del agua en toda la ciudad.");
 }
