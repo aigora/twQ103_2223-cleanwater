@@ -1,0 +1,36 @@
+#include<stdio.h>
+int main(){
+int opcion;
+printf("Bienvenido a CleanWater\n");
+    do{
+printf("a-Iniciar sesión\nb-Registrarse\n");
+scanf("%d",&opcion);
+        while(opcion!);
+switch(opcion){
+case 1:
+printf("Iniciando sesión...\n");
+//meter función para iniciar sesión
+//si se ha inicido sesión, meter función para mostrar menú
+printf("1-Consultar datos\n2-Introducir nuevos datos\n3-Acerca de los parametros\n4-Acerca de la aplicación\n5-Salir\n");
+scanf("%d",&opcion);
+if(opcion==1){
+//abrir el fichero con datos previamente introducidos
+}else if(opcion==2){
+//meter función para introducir nuevos datos
+}else if(opcion==3){
+//meter función para mostrar los parámetros
+}else if(opcion==4){
+//meter función para mostrar información sobre la aplicación
+}else if(opcion==5){
+//salir
+}else{
+printf("Opción no válida\n");
+}
+break;
+case 2:
+printf("Registrando usuario...\n");
+//meter función para registrar usuario
+        break;
+}
+    }
+        }
