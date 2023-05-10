@@ -1,36 +1,116 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+void imprimirParametros();
+void imprimirInfo();
+
+struct ficha{
+    char nombre[100];
+    char contrasennya[100];
+    int registro;
+    
+};
+
 int main(){
-int opcion;
-printf("Bienvenido a CleanWater\n");
-    do{
-printf("a-Iniciar sesión\nb-Registrarse\n");
-scanf("%d",&opcion);
-        while(opcion!);
-switch(opcion){
-case 1:
-printf("Iniciando sesión...\n");
-//meter función para iniciar sesión
-//si se ha inicido sesión, meter función para mostrar menú
-printf("1-Consultar datos\n2-Introducir nuevos datos\n3-Acerca de los parametros\n4-Acerca de la aplicación\n5-Salir\n");
-scanf("%d",&opcion);
-if(opcion==1){
-//abrir el fichero con datos previamente introducidos
-}else if(opcion==2){
-//meter función para introducir nuevos datos
-}else if(opcion==3){
-//meter función para mostrar los parámetros
-}else if(opcion==4){
-//meter función para mostrar información sobre la aplicación
-}else if(opcion==5){
-//salir
-}else{
-printf("Opción no válida\n");
-}
-break;
-case 2:
-printf("Registrando usuario...\n");
-//meter función para registrar usuario
-        break;
-}
+    
+    struct ficha usuarios[500];
+       int inicio,numeroUsuarios=0;
+       int numeracion=0, i=0, j=0, a, b, n=0;
+       int opcion;
+       FILE * fichero;
+    
+    fichero=fopen("usuarios.txt","r");
+    if(fichero==NULL){ //comprobamos que el fichero con el que vamos a trabajar funciona
+        printf("Error en la apertura de ficheros.\n");
+        return 0;
     }
-        }
+    
+    //Vamos a ir guardando los usuarios que se vayan registrando en el fichero
+    
+    while(fscanf(fichero,"%d %s %s", &usuarios[i].registro,usuarios[i].nombre,usuarios[i].contrasennya)!=EOF){
+        numeroUsuarios++;
+        i++;
+    }
+    fclose(fichero);
+    printf("1.Registrarse\n2.Iniciar sesion\n");
+    scanf("%d",&inicio);
+    fflush(stdin);
+    switch(inicio){
+        
+//Vamos a introducir un nuevo usuario:
+        case 1:
+                    usuarios[i].registro=i+1;
+                    
+                    //pedimos nombre y contrasennya
+                    
+                    printf("Introduzca su nombre de usuario:\t");
+                    fflush(stdin);
+                    gets(usuarios[i].nombre);
+                    printf("Introduzca su contrasenya:\t");
+                    fflush(stdin);
+                    gets(usuarios[i].contrasennya);
+            //vamos a comprobar que no coincida con el nombre de ninguno de los usuarios previamente registrados. En caso de que no coincida, este se annyadira al fichero y se quedar registrada la posicion en la que se annyadio de forma que el siguiente usuario en registrarse quedara annydido a continuacion.
+                                
+                                for(a=0;a<numeroUsuarios;a++){ //el numero de usuarios ira incrementando segun incremente el numero de registros, de forma que cada vez que haya un nuevo resgistro se compare con los ya existentes usuarios
+                                    
+                                    for(j=0;j<i;j++){ //en este caso estaremos comparando el nuevo usuario con los ya existentes
+                                        if(strcmp(usuarios[i].nombre,usuarios[j].nombre)==0){
+                                            printf("El nombre de usuario escogido ya existe. Por favor elija otro:\t");
+                                            fflush(stdin);
+                                            gets(usuarios[i].nombre);
+                                        }
+                                    }
+                                }       fichero=fopen("usuarios.txt","w");
+            if(fichero==NULL){ //comprobamos que el fichero que estamos abriendo funciona
+                printf("Error\n");
+                return 0;
+            }
+            for(n=0;n<=i;n++){
+                fprintf(fichero,"%d %s %s\n", usuarios[n].registro,usuarios[n].nombre,usuarios[n].contrasennya);
+            }
+            fclose(fichero);
+
+            b=i;
+               
+        break;
+            //usuario ya registrado inicia sesión
+        case 2:
+                   
+                       do{ //pedimos el nombre y la contrasennya y comprobamos que ambos coincidan con un usuario ya registrado anteriormente (este estara guardado en el fichero)
+                           printf("Nombre de usuario:\t");
+                           fflush(stdin);
+                           gets(usuarios[i].nombre);
+                           printf("Contrasennya:\t");
+                           fflush(stdin);
+                           gets(usuarios[i].contrasennya);
+                           
+                           for(b=0;b<numeroUsuarios;b++){
+                               if((strcmp(usuarios[i].nombre,usuarios[b].nombre)==0)&&(strcmp(usuarios[i].contrasennya,usuarios[b].contrasennya)==0)){
+                                   numeracion++;
+                                   break;
+                               }
+                           }
+                           if(numeracion==0){ //en caso de que no coincida con un usuario registrado no le dejara continuar
+                               printf("El nombre de usuario o la contrasennya introducidos ha sido incorrecto, por favor introduzcalos de nuevo.\n");
+                           }
+                       }while(numeracion==0);
+            break;
+                            }
+    
+    do{
+    printf("1-Consultar datos\n2-Introducir nuevos datos\n3-Acerca de los parametros\n4-Acerca de la aplicación\n5-Salir\n");
+        scanf("%d",&opcion);
+        if(opcion==1){
+            //abrir el fichero con datos previamente introducidos
+        }else if(opcion==2){
+            //meter función para introducir nuevos datos
+        }else if(opcion==3){
+            imprimirParametros();
+            //meter todo el printf de los parametros en la funcion que hay arriba
+        }else if(opcion==4){
+            imprimirInfo();
+            //meter todo el printf de la información de la aplicacion en la funcion de arriba
+    }
+    }while(opcion!=5);
+}
