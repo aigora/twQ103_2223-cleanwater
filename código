@@ -56,7 +56,7 @@ int main(){
                 
                 //pedimos nombre y contrasennya
                 
-                printf("Introduzca su nombre de usuario o salir si quiere salir:\t");
+                printf("Introduzca su nombre de usuario\t");
                 fflush(stdin);
                 gets(usuarios[i].nombre);
                 printf("Introduzca su contrasenya:\t");
