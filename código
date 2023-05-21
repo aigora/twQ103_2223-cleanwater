@@ -118,7 +118,7 @@ int main(){
                 }while(numeracion==0);
                 break;
         }
-    }
+    
     
     do{
         printf("1-Consultar datos\n2-Introducir nuevos datos\n3-Acerca de los parametros\n4-Acerca de la aplicación\n5-Salir\n");
@@ -181,7 +181,7 @@ int main(){
             fprintf(datos,"%.2f\t", parametros[i].conductividad);
             fprintf(datos,"%.2f\t", parametros[i].turbidez);
             fprintf(datos,"%d\t", parametros[i].coliformes);
-            fprintf(datos,"%.2f\t", parametros[i].temperatura);
+            fprintf(datos,"%.2f\n", parametros[i].temperatura);
             
         
         }else if(opcion==3){
@@ -201,14 +201,21 @@ int main(){
             fclose(datos);
             
            float phTotal=0, conducTotal=0, turbTotal=0, tempTotal=0;
+            float phTot[numParametros],condTot[numParametros],turbTot[numParametros],tempTot[numParametros];
            
             // imprimir el fichero con los datos
             for (i = 0; i < numParametros; i++) {
-                phTotal+=parametros[i].ph;
-                conducTotal+=parametros[i].conductividad;
-                turbTotal+=parametros[i].turbidez;
-                tempTotal+=parametros[i].temperatura;
+                phTot[i]=parametros[i].ph;
+                condTot[i]=parametros[i].conductividad;
+                turbTot[i]=parametros[i].turbidez;
+                tempTot[i]=parametros[i].temperatura;
                 
+            }
+            for(i=0;i < numParametros; i++){
+                phTotal+=phTot[i];
+                conducTotal+=condTot[i];
+                turbTotal+=turbTot[i];
+                tempTotal+=tempTot[i];
             }
             
             printf("pH medio = %.2f\n", phTotal/numParametros);
@@ -222,6 +229,7 @@ int main(){
             imprimirInfo();
         }
     }while(opcion==5);
+    }
 }
 
 //FUNCIONES
@@ -229,4 +237,5 @@ void imprimirParametros(){}
 void imprimirInfo(){
     printf("CLEAN WATER\n\n¡Bienvenidos a CleanWater!\n Somos una página web dedicada a recopilar datos sobre la calidad del agua en los distintos distritos de Madrid. Nuestra misión es proporcionar información precisa y actualizada sobre el estado del agua en cada área, para que los ciudadanos puedan tomar decisiones informadas sobre su consumo y uso.\nEn CleanWater, recopilamos datos de diversas fuentes confiables y los presentamos de manera clara y accesible. Nuestro objetivo es proporcionar información detallada sobre la calidad del agua, incluyendo niveles de pH, cloro, turbidez, y otros parámetros importantes. También ofrecemos consejos y recomendaciones para garantizar que el agua que se consume en casa sea segura y saludable.\nNuestra página web es fácil de usar y está diseñada para ser accesible a todos. Queremos que la información sobre la calidad del agua sea accesible a todos los ciudadanos de Madrid, para que puedan tomar decisiones informadas sobre su consumo de agua.\nEn CleanWater, creemos que el acceso a información precisa y actualizada sobre la calidad del agua es fundamental para garantizar la salud y el bienestar de las personas. Esperamos que nuestra página web sea una herramienta útil para todos los ciudadanos de Madrid y contribuya a mejorar la calidad del agua en toda la ciudad.");
 }
+
 
