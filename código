@@ -117,7 +117,7 @@ int main(){
     
     
     do{
-        printf("1-Consultar datos\n2-Introducir nuevos datos\n3-Media de los parametros\n4-Acerca de la aplicación\n5-Informacion de los parametros\n");
+        printf("1-Consultar datos\n2-Introducir nuevos datos\n3-Media de los parametros\n4-Acerca de la aplicación\n5-Informacion de los parametros\n6.Salir\n");
         scanf("%d",&opcion);
         if(opcion==1){
             //abrir el fichero con datos previamente introducidos
@@ -133,7 +133,8 @@ int main(){
                 i++;
             }
             fclose(datos);
-      
+           
+            // imprimir el fichero con los datos
             for (i = 0; i < numParametros; i++) {
                 printf("Distrito: %s\n", parametros[i].distrito);
                 printf("pH: %.2f\n", parametros[i].ph);
@@ -145,7 +146,7 @@ int main(){
             }
             
         }else if(opcion==2){
-   
+            //meter función para introducir nuevos datos
             datos=fopen("parametros.txt","a");
             if(datos==NULL){ //comprobamos que el fichero con el que vamos a trabajar funciona
                 printf("Error en la apertura de ficheros.\n");
@@ -180,6 +181,8 @@ int main(){
             
         
         }else if(opcion==3){
+            
+            //meter todo el printf de los parametros en la funcion que hay abajo
             
             datos=fopen("parametros.txt","r");
             if(datos==NULL){ //comprobamos que el fichero con el que vamos a trabajar funciona
@@ -223,7 +226,7 @@ int main(){
         }else if(opcion==5){
             imprimirParametros();
         }
-    }while(opcion==6);
+    }while(opcion!=6);
     
 }
 
