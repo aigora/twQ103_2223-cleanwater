@@ -1,1 +1,21 @@
-embajadores 7.3 5.0 3.2 1 20
+Embajadores 7.3 5.0 3.2 1 20
+Fuencarral-El Pardo 7.5 6.2 4.7 1 22
+Arganzuela 7.7 6.3 8.2 0 18
+Retiro 5.5 7.2 3.7 1 25
+Salamanca 7.9 6.3 6.0 0 20
+Chamartín 6.4 8.3 6.1 1 23
+Tetuán 5.6 3.8 2.1 0 20
+Chamberí 7.7 6.3 8.2 0 18
+Moncloa-Aravaca 7.9 6.3 6.0 0 20
+Latina 7.3 5.0 3.2 1 20
+Carabanchel 5.6 3.8 2.1 0 20
+Usera 7.5 6.2 4.7 1 22
+Puente de Vallecas 6.4 8.3 6.1 1 23
+Moratalaz 7.7 6.3 8.2 0 18
+Ciudad Lineal 5.6 3.8 2.1 0 20
+Hortaleza 7.3 5.0 3.2 1 20
+Villaverde 7.5 6.2 4.7 1 22
+Vicálvaro 6.4 8.3 6.1 1 23
+San Blas-Canillejas 5.6 3.8 2.1 0 20
+Barajas 7.7 6.3 8.2 0 18
+
